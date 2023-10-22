@@ -9,16 +9,30 @@ task("accounts","Prints the list of the accounts",async (taskArgs , hre )=>{
 })
 
 module.exports = {
-  solidity: "0.8.10",
+  solidity: "0.8.19",
 
-  defaultNetwork: "alfajores",
+  defaultNetwork: "mantleTest",
   networks:{
     hardhat:{},
-    alfajores :{
-      url : "https://celo-alfajores.infura.io/v3/b208399f926f487093f45debc86299bb",
-      accounts: ["949924cc6116138ccde9765e0829bc13e1f60f98a73606190b4975f2c673f373"]
+    mantleTest :{
+      url : "https://rpc.testnet.mantle.xyz",
+      accounts: ["e34df8c092901b15a7d6c27691ae13ae1da4afb49ba02bc186dda8b086c57dc0"]
     }
-  }
+  },
+  etherscan: {
+    apiKey: "FS85WFY3Y97UEH6SMNDAFU3C489V4D63YY",
+    customChains: [
+        {
+            network: "mantleTest",
+            chainId: 5001,
+            urls: {
+            apiURL: "https://explorer.testnet.mantle.xyz/api",
+            browserURL: "https://explorer.testnet.mantle.xyz"
+            }
+        }
+    ]
+},
+    
 };
 
 

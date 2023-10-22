@@ -1,5 +1,5 @@
 // const Web3 = require('web3');
-const web3 = new Web3(new Web3.providers.HttpProvider("https://celo-alfajores.infura.io/v3/b208399f926f487093f45debc86299bb"));
+const web3 = new Web3(new Web3.providers.HttpProvider("https://rpc.testnet.mantle.xyz/"));
 
 
 
@@ -304,7 +304,7 @@ async function getProposals() {
         contractNameHeader.innerHTML = 'Description';
         theadTr.appendChild(contractNameHeader);
         var contractTickerHeader = document.createElement('th');
-        contractTickerHeader.innerHTML = 'Amount (CELO)';
+        contractTickerHeader.innerHTML = 'Amount (MNT)';
         theadTr.appendChild(contractTickerHeader);
         
 
@@ -362,7 +362,7 @@ async function getMembers() {
         theadTr.appendChild(balanceHeader);
 
         var balanceHeader2 = document.createElement('th');
-        balanceHeader2.innerHTML = 'Contributed Amount (in CELO)';
+        balanceHeader2.innerHTML = 'Contributed Amount (in MNT)';
         theadTr.appendChild(balanceHeader2);
         
         thead.appendChild(theadTr)
@@ -477,7 +477,7 @@ async function createProposal() {
             try {
               const signedTx = await web3.eth.accounts.signTransaction({
                 from: my_wallet[0].address,
-        gasPrice: "20000000000",
+        gasPrice: "30000000000",
         gas: "2000000",
         to: this.contractPublic.options.address,
         data: encodedABI,
